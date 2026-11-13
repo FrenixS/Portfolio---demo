@@ -1,0 +1,345 @@
+/* ===== GLOBAL RESET & BASE ===== */
+/* Removes the default spacing. box-sizing makes width include padding. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Page font and text color. The flex column keeps the footer at the bottom. */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #f0f0f0;
+    line-height: 1.6;
+    overflow-x: hidden;
+    /* Flex layout for sticky footer */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ===== HEADER ===== */
+/* The menu bar stays at the top when you scroll. */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    z-index: 100;
+    background: rgba(18, 18, 24, 0.7);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Puts the menu links in a row. */
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+/* Links turn cyan when you hover. */
+nav a:hover {
+    color: #00d1ff;
+}
+
+/* ===== HERO SECTION ===== */
+/* The hero fills the whole screen and centers the text. */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 2rem;
+    padding-top: 80px; /* ← Clear header height */
+    z-index: 1;
+    position: relative;
+}
+
+/* Big title with a small cyan glow. */
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: #f0f0f0;
+    text-shadow: 0 0 10px rgba(0, 209, 255, 0.3);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    color: #e0e0e0;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Round cyan button used around the page. */
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #00d1ff;
+    color: #121218;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+/* The button moves up a little on hover. */
+.btn:hover {
+    background-color: #00b0e0;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 209, 255, 0.3);
+}
+
+/* ===== CONTAINER ===== */
+/* Keeps the content in the middle, up to 1200px wide. */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    z-index: 1;
+    position: relative;
+}
+
+/* ===== ABOUT SECTION ===== */
+/* Text styles for the about section. */
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.about p {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* ===== PROJECTS SECTION ===== */
+.projects h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+/* Cards fill the row and wrap to the next line on small screens. */
+/* Only one card now, so max-width stops it from stretching across the whole page. */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Dark, see-through card. */
+.project-card {
+    background: rgba(20, 20, 30, 0.5);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+}
+
+.project-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.project-card p {
+    color: #d0d0d0;
+    margin-bottom: 1.5rem;
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.contact p {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #d0d0d0;
+}
+
+/* Form fields are stacked in one column. */
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Dark input boxes. */
+.contact input,
+.contact textarea {
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: rgba(20, 20, 30, 0.7);
+    color: #f0f0f0;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contact button {
+    padding: 1rem;
+    background-color: #00d1ff;
+    color: #121218;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.contact button:hover {
+    background-color: #00b0e0;
+    transform: translateY(-3px);
+}
+
+/* ===== FOOTER ===== */
+/* margin-top: auto pushes the footer to the bottom. */
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 2rem;
+    background: rgba(18, 18, 24, 0.9);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ===== RESPONSIVE ===== */
+/* Phone changes: smaller text and the menu stacks in a column. */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .container {
+        padding: 2rem 1rem;
+    }
+    
+    .projects h2,
+    .about h2,
+    .contact h2 {
+        font-size: 2rem;
+    }
+}
+
+/* ===== ANIMATION ON SCROLL ===== */
+/* script.js adds this class when a section shows on screen. It fades in. */
+.animate {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    padding: 0px 0px 200px 0px;
+}
+
+/* Sections and cards start hidden. The script shows them when you scroll. */
+.project-card,
+section {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+ /* Colors for the forest. The script in index.html reads the tree colors. */
+ :root {
+        --sky-top: #1b1d29;
+        --sky-bottom: #262436;
+        --tree-far: 43, 41, 60;
+        --tree-near: 58, 52, 78;
+      }
+
+      /* Fixed background behind everything. */
+      .scene {
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        background:
+          radial-gradient(120% 70% at 50% 100%, #2c2940 0%, transparent 70%),
+          linear-gradient(180deg, var(--sky-top) 0%, var(--sky-bottom) 100%);
+      }
+
+      /* The canvas fills the whole scene. */
+      #trees {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      /* Light noise on top for a film look. */
+      .grain {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.07;
+        mix-blend-mode: overlay;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+      }
+
+      /* Darkens the edges of the screen. */
+      .vignette {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: radial-gradient(ellipse at 50% 60%, transparent 55%, rgba(8, 8, 14, 0.45) 100%);
+      }
+
+/* ===== FLUX LIGHT LAYER ===== */
+/* Fixed layer for the light effect. With screen blending, black is invisible. */
+#flux {
+    position: fixed;
+    inset: 0;
+    z-index: -1;               /* after .scene in the DOM, so it paints over the forest */
+    pointer-events: none;
+    mix-blend-mode: screen;    /* black = transparent, light adds onto the forest */
+}
+
+#flux canvas {
+    display: block;
+}
+
+/* Turns off text selecting while you hold the mouse down. */
+body.flux-holding {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Small hint text under the button. */
+.hero-hint {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    color: rgba(240, 240, 240, 0.5);
+}
+
+/* ===== END ===== */
+

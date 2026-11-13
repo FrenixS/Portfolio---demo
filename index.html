@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <!-- Loads the CSS file that styles the page. -->
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <!-- NEW FOREST BACKGROUND -->
+    <div class="scene">
+        <!-- The script at the bottom draws the trees on this canvas. -->
+        <canvas id="trees"></canvas>
+        <div class="grain"></div>
+        <div class="vignette"></div>
+    </div>
+
+    <!-- FLUX: live Pixi.js light layer, blended over the forest -->
+    <div id="flux" aria-hidden="true"></div>
+
+    <header>
+        <!-- Menu links. Each one jumps to a section below. -->
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Top section with the title and the main button. -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Welcome to My Portfolio</h1>
+            <p>A creative web developer passionate about building beautiful and functional websites.</p>
+            <a href="#projects" class="btn">View My Work</a>
+            <!-- Small text that tells visitors how to play with the light. -->
+            <div class="hero-hint">Move to stir the light · hold to pull · release to burst · press C for colour</div>
+        </div>
+    </section>
+
+    <!-- WRAP ALL CONTENT BELOW HERO -->
+    <div class="content">
+        <!-- About section. -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>I'm a passionate web developer with expertise in HTML, CSS, and JavaScript. I love turning ideas into reality through code and design.</p>
+                <p>When I'm not coding, you can find me exploring new technologies, reading tech blogs, or enjoying a good cup of coffee.</p>
+            </div>
+        </section>
+
+        <!-- Projects section. One card for the Micro:bit project. -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2>My Projects</h2>
+                <div class="project-grid">
+                    <!-- Card for the Micro:bit project. It has a preview image and a link to the project page. -->
+                    <div class="project-card" id="project1">
+                        <h3>Micro:bit Algorave Visualizer</h3>
+                        <!-- Short description of what the project is and how it works. -->
+                        <p>A visualizer for live VJ shows. Glowing particles flow across a big canvas, and you steer them by tilting a Micro:bit wand in your hand.</p>
+                        <p>The visuals are built with the p5.js library and run in the browser, with 80 particles. They move using the tilt values from the Micro:bit and wrap around the screen edges.</p>
+                        <p>We use two Micro:bits. The wand runs on a battery and sends its tilt and button data over radio. The second one is plugged into the computer and passes the data to the p5.js sketch with Web Serial. This way nothing is tied to a USB cable.</p>
+                        <p>Button A on the receiver starts the show. Button B on the wand changes the color palette. The A+B combos on the wand and the receiver change how many particles there are and turn on Drop / Glitch Mode.</p>
+                        <p>The final look has 90s neon colors and motion blur trails. We tested it in the blackbox theater to set the tilt sensitivity and make it easy to see from far away.</p>
+                        <!-- Picture of the setup: wand, receiver and the particle screen. -->
+                        <img src="microbit-visualizer.svg" alt="A wand Micro:bit sends radio signals to a receiver Micro:bit, which steers particles on a screen" style="display: block; margin: 12px auto 16px; max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 209, 255, 0.15);">
+                        <a href="MicrobitWebb/index.html" target="_blank" class="btn">View Project <span style="font-size: 0.7em; color: #66ccff;">🌐</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <p>Have a project in mind? Let's work together!</p>
+                <!-- Contact form. script.js stops it from really sending. -->
+                <form id="contactForm">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer with the copyright text. -->
+        <footer>
+            <p>&copy; 2026 My Portfolio. All rights reserved.</p>
+        </footer>
+    </div>
+
+
+    <!-- Loads the Pixi.js library from the internet. flux.js needs it, so it comes first. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.2.4/pixi.min.js"></script>
+    <!-- The light effect. -->
+    <script src="flux.js"></script>
+    <!-- Smooth scrolling, the form, the fade-in on scroll and the forest background. -->
+    <script src="script.js"></script>
+</body>
+</html>

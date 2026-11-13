@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: monospace;
+  background-color: #050508;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.canvas-container {
+  position: relative;
+  box-shadow: 0 0 25px rgba(94, 255, 0, 0.432);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+}
+
